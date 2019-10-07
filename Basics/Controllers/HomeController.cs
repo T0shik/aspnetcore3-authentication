@@ -39,7 +39,7 @@ namespace Basics.Controllers
             var licenseIdentity = new ClaimsIdentity(licenseClaims, "Government");
 
             var userPrincipal = new ClaimsPrincipal(new[] { grandmaIdentity, licenseIdentity });
-
+            //-----------------------------------------------------------
             HttpContext.SignInAsync(userPrincipal);
 
             return RedirectToAction("Index");
