@@ -1,5 +1,6 @@
 using Basics.AuthorizationRequirements;
 using Basics.Controllers;
+using Basics.CustomPolicyProvider;
 using Basics.Transformer;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
@@ -46,6 +47,8 @@ namespace Basics
                 });
             });
 
+            services.AddSingleton<IAuthorizationPolicyProvider, CustomAuthorizationPolicyProvider>();
+            services.AddScoped<IAuthorizationHandler, SecurityLevelHandler>();
             services.AddScoped<IAuthorizationHandler, CustomRequireClaimHandler>();
             services.AddScoped<IAuthorizationHandler, CookieJarAuthorizationHandler>();
             services.AddScoped<IClaimsTransformation, ClaimsTransformation>();
