@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http.Extensions;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http.Extensions;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using Newtonsoft.Json;
@@ -16,7 +17,7 @@ namespace Server.Controllers
         public IActionResult Authorize(
             string response_type, // authorization flow type 
             string client_id, // client id
-            string redirect_uri, 
+            string redirect_uri,
             string scope, // what info I want = email,grandma,tel
             string state) // random string generated to confirm that we are going to back to the same client
         {
@@ -87,6 +88,17 @@ namespace Server.Controllers
             await Response.Body.WriteAsync(responseBytes, 0, responseBytes.Length);
 
             return Redirect(redirect_uri);
+        }
+
+        [Authorize]
+        public IActionResult Validate()
+        {
+            if (HttpContext.Request.Query.TryGetValue("access_token", out var accessToken))
+            {
+
+                return Ok();
+            }
+            return BadRequest();
         }
     }
 }

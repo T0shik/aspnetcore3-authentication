@@ -34,7 +34,6 @@ namespace Client
                     config.CallbackPath = "/oauth/callback";
                     config.AuthorizationEndpoint = "https://localhost:44382/oauth/authorize";
                     config.TokenEndpoint = "https://localhost:44382/oauth/token";
-
                     config.SaveTokens = true;
 
                     config.Events = new OAuthEvents()
@@ -56,6 +55,8 @@ namespace Client
                         }
                     };
                 });
+
+            services.AddHttpClient();
 
             services.AddControllersWithViews()
                 .AddRazorRuntimeCompilation();
