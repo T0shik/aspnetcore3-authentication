@@ -43,7 +43,9 @@ namespace IdentityServer
                         "ApiTwo", 
                         IdentityServerConstants.StandardScopes.OpenId,
                         IdentityServerConstants.StandardScopes.Profile,
-                    }
+                    },
+
+                    RequireConsent = false,
                 }
             };
     }
