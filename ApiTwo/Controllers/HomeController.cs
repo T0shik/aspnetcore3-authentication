@@ -14,7 +14,7 @@ namespace ApiTwo.Controllers
             _httpClientFactory = httpClientFactory;
         }
 
-        [Route("/")]
+        [Route("/home")]
         public async Task<IActionResult> Index()
         {
             //retrieve access token
