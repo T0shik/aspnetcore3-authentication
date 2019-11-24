@@ -24,7 +24,7 @@ namespace IdentityServer
 
         public static IEnumerable<ApiResource> GetApis() =>
             new List<ApiResource> {
-                new ApiResource("ApiOne"), 
+                new ApiResource("ApiOne"),
                 new ApiResource("ApiTwo", new string[] { "rc.api.garndma" }),
             };
 
@@ -46,9 +46,9 @@ namespace IdentityServer
 
                     RedirectUris = { "https://localhost:44322/signin-oidc" },
 
-                    AllowedScopes = { 
-                        "ApiOne", 
-                        "ApiTwo", 
+                    AllowedScopes = {
+                        "ApiOne",
+                        "ApiTwo",
                         IdentityServerConstants.StandardScopes.OpenId,
                         //IdentityServerConstants.StandardScopes.Profile,
                         "rc.scope",
@@ -58,7 +58,22 @@ namespace IdentityServer
                     //AlwaysIncludeUserClaimsInIdToken = true,
                     AllowOfflineAccess = true,
                     RequireConsent = false,
-                }
+                },
+                new Client {
+                    ClientId = "client_id_js",
+
+                    AllowedGrantTypes = GrantTypes.Implicit,
+
+                    RedirectUris = { "https://localhost:44345/home/signin" },
+
+                    AllowedScopes = {
+                        IdentityServerConstants.StandardScopes.OpenId,
+                        "ApiOne",
+                    },
+
+                    AllowAccessTokensViaBrowser = true,
+                    RequireConsent = false,
+}
             };
     }
 }
