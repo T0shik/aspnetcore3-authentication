@@ -1,5 +1,12 @@
-﻿
-<button onclick="extractTokens()">Extract Tokens</button>
+﻿<script src="https://cdnjs.cloudflare.com/ajax/libs/oidc-client/1.9.1/oidc-client.min.js"></script>
 
+<script>
+    var userManger = new Oidc.UserManager();
 
-<script src="~/sign-in-callback.js"></script>
+    userManger.signinCallback().then(res => {
+        console.log(res);
+        
+        window.location.href = '/home/index';
+    })
+
+</script>

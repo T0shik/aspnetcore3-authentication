@@ -65,6 +65,7 @@ namespace IdentityServer
                     AllowedGrantTypes = GrantTypes.Implicit,
 
                     RedirectUris = { "https://localhost:44345/home/signin" },
+                    AllowedCorsOrigins = { "https://localhost:44345" },
 
                     AllowedScopes = {
                         IdentityServerConstants.StandardScopes.OpenId,

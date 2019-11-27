@@ -1,10 +1,5 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
@@ -15,11 +10,18 @@ namespace ApiOne
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddAuthentication("Bearer")
-                .AddJwtBearer("Bearer", config => {
+                .AddJwtBearer("Bearer", config =>
+                {
                     config.Authority = "https://localhost:44305/";
 
                     config.Audience = "ApiOne";
                 });
+
+            services.AddCors(confg =>
+                confg.AddPolicy("AllowAll",
+                    p => p.AllowAnyOrigin()
+                        .AllowAnyMethod()
+                        .AllowAnyHeader()));
 
             services.AddControllers();
         }
@@ -30,6 +32,8 @@ namespace ApiOne
             {
                 app.UseDeveloperExceptionPage();
             }
+            
+            app.UseCors("AllowAll");
 
             app.UseRouting();
 
