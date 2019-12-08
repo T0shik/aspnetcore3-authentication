@@ -27,7 +27,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiTwo", "ApiTwo\ApiTwo.csp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MvcClient", "MvcClient\MvcClient.csproj", "{DECF9AE7-E0AE-485E-8FF4-ED3276A785F5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JavascriptClient", "JavascriptClient\JavascriptClient.csproj", "{29A7FDE8-6760-4796-82AE-00FBA7B1C0B4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JavascriptClient", "JavascriptClient\JavascriptClient.csproj", "{29A7FDE8-6760-4796-82AE-00FBA7B1C0B4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -63,6 +63,15 @@ namespace Basics
                 // global authorization filter
                 //config.Filters.Add(new AuthorizeFilter(defaultAuthPolicy));
             });
+
+            services.AddRazorPages()
+                .AddRazorPagesOptions(config =>
+                {
+                    config.Conventions.AuthorizePage("/Razor/Secured");
+                    config.Conventions.AuthorizePage("/Razor/Policy", "Admin");
+                    config.Conventions.AuthorizeFolder("/RazorSecured");
+                    config.Conventions.AllowAnonymousToPage("/RazorSecured/Anon");
+                });
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -83,6 +92,7 @@ namespace Basics
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapDefaultControllerRoute();
+                endpoints.MapRazorPages();
             });
         }
     }
