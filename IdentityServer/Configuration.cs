@@ -43,6 +43,7 @@ namespace IdentityServer
                     ClientSecrets = { new Secret("client_secret_mvc".ToSha256()) },
 
                     AllowedGrantTypes = GrantTypes.Code,
+                    RequirePkce = true,
 
                     RedirectUris = { "https://localhost:44322/signin-oidc" },
                     PostLogoutRedirectUris = { "https://localhost:44322/Home/Index" },
@@ -63,7 +64,9 @@ namespace IdentityServer
                 new Client {
                     ClientId = "client_id_js",
 
-                    AllowedGrantTypes = GrantTypes.Implicit,
+                    AllowedGrantTypes = GrantTypes.Code,
+                    RequirePkce = true,
+                    RequireClientSecret = false,
 
                     RedirectUris = { "https://localhost:44345/home/signin" },
                     PostLogoutRedirectUris = { "https://localhost:44345/Home/Index" },

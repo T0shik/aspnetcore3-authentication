@@ -35,7 +35,7 @@ namespace IdentityServer
                 var context = scope.ServiceProvider.GetRequiredService<ConfigurationDbContext>();
 
                 context.Database.Migrate();
-                
+
                 if (!context.Clients.Any())
                 {
                     foreach (var client in Configuration.GetClients())
