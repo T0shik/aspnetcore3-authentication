@@ -83,7 +83,26 @@ namespace IdentityServer
 
                     AllowAccessTokensViaBrowser = true,
                     RequireConsent = false,
-}
+                },
+
+                new Client {
+                    ClientId = "wpf",
+
+                    AllowedGrantTypes = GrantTypes.Code,
+                    RequirePkce = true,
+                    RequireClientSecret = false,
+
+                    RedirectUris = { "http://localhost/sample-wpf-app" },
+                    AllowedCorsOrigins = { "http://localhost" },
+
+                    AllowedScopes = {
+                        IdentityServerConstants.StandardScopes.OpenId,
+                        "ApiOne",
+                    },
+
+                    AllowAccessTokensViaBrowser = true,
+                    RequireConsent = false,
+                }
             };
     }
 }
