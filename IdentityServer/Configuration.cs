@@ -102,6 +102,23 @@ namespace IdentityServer
 
                     AllowAccessTokensViaBrowser = true,
                     RequireConsent = false,
+                },
+                new Client {
+                    ClientId = "xamarin",
+
+                    AllowedGrantTypes = GrantTypes.Code,
+                    RequirePkce = true,
+                    RequireClientSecret = false,
+
+                    RedirectUris = { "xamarinformsclients://callback" },
+
+                    AllowedScopes = {
+                        IdentityServerConstants.StandardScopes.OpenId,
+                        "ApiOne",
+                    },
+
+                    AllowAccessTokensViaBrowser = true,
+                    RequireConsent = false,
                 }
             };
     }
