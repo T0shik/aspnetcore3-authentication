@@ -119,7 +119,26 @@ namespace IdentityServer
 
                     AllowAccessTokensViaBrowser = true,
                     RequireConsent = false,
-                }
+                },
+		new Client {
+                    ClientId = "flutter",
+
+                    AllowedGrantTypes = GrantTypes.Code,
+                    RequirePkce = true,
+                    RequireClientSecret = false,
+
+                    RedirectUris = { "http://localhost:4000/" },
+                    AllowedCorsOrigins = { "http://localhost:4000" },
+
+                    AllowedScopes = {
+                        IdentityServerConstants.StandardScopes.OpenId,
+                        "ApiOne",
+                    },
+
+                    AllowAccessTokensViaBrowser = true,
+                    RequireConsent = false,
+                },
+
             };
     }
 }

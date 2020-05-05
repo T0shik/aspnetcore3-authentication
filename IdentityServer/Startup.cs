@@ -93,6 +93,14 @@ namespace IdentityServer
 
             app.UseIdentityServer();
 
+            if(_env.IsDevelopment())
+            {
+                app.UseCookiePolicy(new CookiePolicyOptions()
+                {
+                     MinimumSameSitePolicy = Microsoft.AspNetCore.Http.SameSiteMode.Lax
+                });
+            }
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapDefaultControllerRoute();
