@@ -11,12 +11,12 @@ namespace Basics.CustomPolicyProvider
     {
         public SecurityLevelAttribute(int level)
         {
-            Policy = $"{DynamicPilicies.SecurityLevel}.{level}"; 
+            Policy = $"{DynamicPolicies.SecurityLevel}.{level}"; 
         }
     }
 
     // {type}
-    public static class DynamicPilicies
+    public static class DynamicPolicies
     {
         public static IEnumerable<string> Get()
         {
@@ -38,11 +38,11 @@ namespace Basics.CustomPolicyProvider
 
             switch (type)
             {
-                case DynamicPilicies.Rank:
+                case DynamicPolicies.Rank:
                     return new AuthorizationPolicyBuilder()
                         .RequireClaim("Rank", value)
                         .Build();
-                case DynamicPilicies.SecurityLevel:
+                case DynamicPolicies.SecurityLevel:
                     return new AuthorizationPolicyBuilder()
                         .AddRequirements(new SecurityLevelRequirement(Convert.ToInt32(value)))
                         .Build();
@@ -68,7 +68,7 @@ namespace Basics.CustomPolicyProvider
             SecurityLevelRequirement requirement)
         {
             var claimValue = Convert.ToInt32(context.User.Claims
-                .FirstOrDefault(x => x.Type == DynamicPilicies.SecurityLevel)
+                .FirstOrDefault(x => x.Type == DynamicPolicies.SecurityLevel)
                 ?.Value ?? "0");
 
             if (requirement.Level <= claimValue)
@@ -88,7 +88,7 @@ namespace Basics.CustomPolicyProvider
 
         public override Task<AuthorizationPolicy> GetPolicyAsync(string policyName)
         {
-            foreach (var customPolicy in DynamicPilicies.Get())
+            foreach (var customPolicy in DynamicPolicies.Get())
             {
                 if (policyName.StartsWith(customPolicy))
                 {
