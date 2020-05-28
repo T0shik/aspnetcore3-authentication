@@ -33,7 +33,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfApp", "WpfApp\WpfApp.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XamarinApp.Android", "XamarinApp\XamarinApp.Android\XamarinApp.Android.csproj", "{6DFCB525-A543-46D2-B7AF-761B7E5AF160}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XamarinApp", "XamarinApp\XamarinApp\XamarinApp.csproj", "{A32ACF58-7FD4-4DD5-BF46-78597D93CEE2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XamarinApp", "XamarinApp\XamarinApp\XamarinApp.csproj", "{A32ACF58-7FD4-4DD5-BF46-78597D93CEE2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Angular", "Angular\Angular.csproj", "{D46D3AEC-CAF2-4785-A51E-A5060D5110C5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -95,6 +97,10 @@ Global
 		{A32ACF58-7FD4-4DD5-BF46-78597D93CEE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A32ACF58-7FD4-4DD5-BF46-78597D93CEE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A32ACF58-7FD4-4DD5-BF46-78597D93CEE2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D46D3AEC-CAF2-4785-A51E-A5060D5110C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D46D3AEC-CAF2-4785-A51E-A5060D5110C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D46D3AEC-CAF2-4785-A51E-A5060D5110C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D46D3AEC-CAF2-4785-A51E-A5060D5110C5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -113,6 +119,7 @@ Global
 		{FCC518A9-909C-4F86-9DD0-C16C0ED67B68} = {9D8AD979-7C11-45DF-AA44-FDE88CA65FF4}
 		{6DFCB525-A543-46D2-B7AF-761B7E5AF160} = {9D8AD979-7C11-45DF-AA44-FDE88CA65FF4}
 		{A32ACF58-7FD4-4DD5-BF46-78597D93CEE2} = {9D8AD979-7C11-45DF-AA44-FDE88CA65FF4}
+		{D46D3AEC-CAF2-4785-A51E-A5060D5110C5} = {9D8AD979-7C11-45DF-AA44-FDE88CA65FF4}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {451D3CFF-AF11-410B-BFA4-4E8F0D85C3FE}

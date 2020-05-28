@@ -86,6 +86,26 @@ namespace IdentityServer
                 },
 
                 new Client {
+                    ClientId = "angular",
+
+                    AllowedGrantTypes = GrantTypes.Code,
+                    RequirePkce = true,
+                    RequireClientSecret = false,
+
+                    RedirectUris = { "http://localhost:4200" },
+                    PostLogoutRedirectUris = { "http://localhost:4200" },
+                    AllowedCorsOrigins = { "http://localhost:4200" },
+
+                    AllowedScopes = {
+                        IdentityServerConstants.StandardScopes.OpenId,
+                        "ApiOne",
+                    },
+
+                    AllowAccessTokensViaBrowser = true,
+                    RequireConsent = false,
+                },
+
+                new Client {
                     ClientId = "wpf",
 
                     AllowedGrantTypes = GrantTypes.Code,
